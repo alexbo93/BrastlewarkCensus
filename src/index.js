@@ -7,7 +7,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { fetchHeroes } from './actions/index';
 
 import HeroesIndex from './components/heroes-index';
-import HeroesDetail from './components/heroes-detail';
+import HeroesDetail from './containers/heroes-detail';
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(promiseMiddleWare)(createStore);
@@ -19,7 +19,7 @@ store.dispatch(fetchHeroes());
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <div>
+      <div className="container">
         <Switch>
           <Route path="/heroes/:id" component={HeroesDetail} />
           <Route path="/" component={HeroesIndex} />

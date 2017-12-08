@@ -38,6 +38,7 @@
     "babel-preset-stage-1": "^6.1.18",
     "react": "^0.14.9",
     "react-dom": "^0.14.3",
+    "react-infinite-scroller": "^1.1.1",
     "react-redux": "4.3.0",
     "react-router": "^2.0.1",
     "react-router-dom": "^4.2.2",

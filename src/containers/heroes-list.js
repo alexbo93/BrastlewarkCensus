@@ -4,12 +4,20 @@ import { bindActionCreators } from 'redux';
 import { Link } from "react-router-dom";
 import { fetchHeroes } from '../actions/index';
 import Utils from '../utils';
+import InfiniteScroll from 'react-infinite-scroller';
 
 class HeroesList extends Component {
     constructor(props) {
       super(props)
 
+      // Local state variable to handle infinite scroll
+      this.state = {
+        scroll: 1
+      };
+
       this.getHeroesListBySearch = this.getHeroesListBySearch.bind(this);
+      this.nextScroll = this.nextScroll.bind(this);
+      this.hasMoreData = this.hasMoreData.bind(this);
     }
 
     getHeroesListBySearch() {
@@ -23,9 +31,8 @@ class HeroesList extends Component {
       return current;
     }
 
-    renderList() {
+    renderList(heroes) {
       // TODO: Improve the check that heroes array has content
-      let heroes = this.getHeroesListBySearch();
       if(heroes && heroes.length > 0) {
         return heroes.map((heroe) => {
           return (
@@ -43,9 +50,27 @@ class HeroesList extends Component {
       return (<div>Loading...</div>);
     }
 
+    nextScroll() {
+      this.setState({scroll: this.state.scroll+1});
+      // console.log('hello');
+    }
+
+    hasMoreData(heroes) {
+      if(heroes){
+        return heroes.length % this.state.scroll > 20;
+      }
+      return true;
+    }
+
     render() {
+        const heroes = this.getHeroesListBySearch();
         return (
-          <ul>{this.renderList()}</ul>
+          <div>
+            <h5><strong>Brastlewark Inhabitants</strong></h5>
+            <div className="heroes-list">
+              <ul>{this.renderList(heroes)}</ul>
+            </div>
+          </div>
         );
     }
 }
@@ -56,7 +81,6 @@ class HeroesList extends Component {
 function mapStateToProps(state) {
     // Whatever is returned will show up as props
     // inside of HeroesList
-    console.log('state in mapStateToProps: ',state);
     return {
         heroes: state.heroes,
         search: state.search

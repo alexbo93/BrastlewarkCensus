@@ -6,7 +6,6 @@ import { setSearch } from '../actions/index';
 class HeroesSearch extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = { search: "" };
 
     // Binding methods to be able to use component global "this" inside them
@@ -15,30 +14,27 @@ class HeroesSearch extends Component {
   }
 
   onInputChange(event) {
-    console.log('He cambiado el valor del input');
     this.setState({ search: event.target.value });
   }
 
   onFormSubmit(event) {
-    console.log('se ha hecho un submit del input');
     event.preventDefault();
 
     // New Search term will be set in store state
-    console.log('this.props onFormSubmit: ',this.props);
     this.props.setSearch(this.state.search);
     // this.setState({ search: "" });
   }
   render() {
       return (
-        <form onSubmit={this.onFormSubmit} className='input-group'>
+        <form onSubmit={this.onFormSubmit} className='input-group margin_b'>
           <input
-            placeholder='Search a Brastlewark Heroe'
+            placeholder='Type the name of a Hero...'
             onChange={this.onInputChange}
             value={this.state.search}
-            className="form-control"
+            className="form-control input"
             />
           <span className="input-group-btn">
-            <button type="submit" className="btn btn-secondary">Search</button>
+            <button type="submit" className="btn btn-primary">Search</button>
           </span>
         </form>
       );

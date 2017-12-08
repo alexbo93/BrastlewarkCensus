@@ -1,0 +1,30 @@
+.search {
+  .input {
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    height: 30px;
+    margin-right: 5%;
+    padding-left: 10px;
+    width: 70%;
+    :hover,
+    :focus {
+      border: 1px solid #70BFC0;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
+      outline: none;
+    }
+  }
+
+
+  // .btn {
+  //   padding: 6px;
+  //   width: 20%;
+  //
+  //   :hover,
+  //   :focus {
+  //     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #CCCCCC;
+  //   }
+  // }
+
+
+
+}
