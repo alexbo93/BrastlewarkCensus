@@ -19,8 +19,9 @@ Utils.AjaxHTTPRequest = (url) => {
 
 Utils.getMatchBySearch = (search, original_list) => {
   let new_display = original_list.filter((item) => {
-    return item.name.toLowerCase().indexOf(query.toLowerCase()) > -1 || item.id.toLowerCase().indexOf(query.toLowerCase()) > -1;
+    return item.name.toLowerCase().indexOf(search.toLowerCase()) > -1 || item.name.toLowerCase().indexOf(search.toLowerCase()) > -1;
   })
+  console.log('new display length: ',new_display.length);
   return new_display;
 }
 

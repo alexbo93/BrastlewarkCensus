@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; //Glue between react and redux
 import { bindActionCreators } from 'redux';
-import setSearch from '../actions/index';
+import { setSearch } from '../actions/index';
 
 class HeroesSearch extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class HeroesSearch extends Component {
     // New Search term will be set in store state
     console.log('this.props onFormSubmit: ',this.props);
     this.props.setSearch(this.state.search);
-    this.setState({ search: "" });
+    // this.setState({ search: "" });
   }
   render() {
       return (

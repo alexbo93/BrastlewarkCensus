@@ -3,30 +3,40 @@ import { connect } from 'react-redux'; //Glue between react and redux
 import { bindActionCreators } from 'redux';
 import { Link } from "react-router-dom";
 import { fetchHeroes } from '../actions/index';
+import Utils from '../utils';
 
 class HeroesList extends Component {
     constructor(props) {
       super(props)
-      console.log("this.props in constructor: ",this.props);
-      this.state = {
-        currentHeroes: []
-      }
+
+      this.getHeroesListBySearch = this.getHeroesListBySearch.bind(this);
     }
 
     componentDidMount() {
-      if(this.props.search && this.props.search != "") {
-        console.log('hola voy a crear nueva lista');
-        this.setState({currentHeroes: Utils.getMatchBySearch(this.props.search, this.props.heroes)});
-      }else{
-        console.log('this props heroes in componenDidMount: ',this.props.heroes.Brastlewark);
-        this.setState({currentHeroes: this.props.heroes.Brastlewark});
-      }
+      // console.log('this.props. in componentDidMount: ',this.props);
+      // if(this.props.search && this.props.search != "") {
+      //   this.setState({currentHeroes: Utils.getMatchBySearch(this.props.search, this.props.heroes)});
+      // }else{
+      //   this.setState({currentHeroes: this.props.heroes.Brastlewark});
+      // }
     }
+
+    getHeroesListBySearch() {
+      // If search criterion has been set, heroe list will be built over this
+      // if not, the list will be original heroes list
+      let current = this.props.search && this.props.search != "" ? (
+        Utils.getMatchBySearch(this.props.search, this.props.heroes.Brastlewark)
+      ) : (
+        this.props.heroes.Brastlewark
+      )
+      return current;
+    }
+
     renderList() {
       // TODO: Improve the check that heroes array has content
-      console.log('this state currentHeroes: ',this.state.currentHeroes);
-      if(this.state.currentHeroes && this.state.currentHeroes.length > 0) {
-        return this.state.currentHeroes.map((heroe) => {
+      let heroes = this.getHeroesListBySearch();
+      if(heroes && heroes.length > 0) {
+        return heroes.map((heroe) => {
           return (
             <li className="list-group-item" key={heroe.id}>
               <Link to={`/heroes/${heroe.id}`}>
@@ -35,7 +45,10 @@ class HeroesList extends Component {
             </li>
           );
         });
+      }else if (heroes && heroes.length == 0) {
+        return <div>No results found with this search criterion</div>
       }
+      // If heroes is not existing yet is because it is still loading..
       return (<div>Loading...</div>);
     }
 
@@ -52,6 +65,7 @@ class HeroesList extends Component {
 function mapStateToProps(state) {
     // Whatever is returned will show up as props
     // inside of HeroesList
+    console.log('state in mapStateToProps: ',state);
     return {
         heroes: state.heroes,
         search: state.search
