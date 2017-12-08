@@ -9,7 +9,7 @@ Utils.AjaxHTTPRequest = (url) => {
   return new Promise(function(resolve, reject) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function() {
-      resolve(this.responseText);
+      resolve(this);
     };
     xhr.onerror = reject;
     xhr.open('GET', url);

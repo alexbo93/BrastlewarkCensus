@@ -12,15 +12,6 @@ class HeroesList extends Component {
       this.getHeroesListBySearch = this.getHeroesListBySearch.bind(this);
     }
 
-    componentDidMount() {
-      // console.log('this.props. in componentDidMount: ',this.props);
-      // if(this.props.search && this.props.search != "") {
-      //   this.setState({currentHeroes: Utils.getMatchBySearch(this.props.search, this.props.heroes)});
-      // }else{
-      //   this.setState({currentHeroes: this.props.heroes.Brastlewark});
-      // }
-    }
-
     getHeroesListBySearch() {
       // If search criterion has been set, heroe list will be built over this
       // if not, the list will be original heroes list

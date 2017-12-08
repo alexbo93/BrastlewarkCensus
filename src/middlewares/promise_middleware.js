@@ -12,8 +12,10 @@ function isPromise(payload) {
  */
 export default store => next => action => {
   return isPromise(action.payload)
-  ? action.payload.then((data) => {
-      store.dispatch({type: action.type, payload: JSON.parse(data)});
-    })
+  ? action.payload.then(
+    (data) => store.dispatch({type: action.type, payload: JSON.parse(data.responseText)}),
+    (error) => store.dispatch({type: action.type, payload: error.responseText})
+    // (error) => store.dispatch({type: action.type, payload: error})
+  )
   : next(action)
 }

@@ -14,9 +14,6 @@ const createStoreWithMiddleware = applyMiddleware(promiseMiddleWare)(createStore
 
 const store = createStoreWithMiddleware(reducers);
 
-// Store will have 2 lists, one will be original list of heroes
-// The other one will depend on the search that user makes.
-// The should be the same initialy.
 store.dispatch(fetchHeroes());
 
 ReactDOM.render(
