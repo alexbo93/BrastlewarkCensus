@@ -21,7 +21,7 @@ class HeroesDetail extends Component {
 
     // We need to load heroes list before retrieving our heroe information
     if (!heroes) {
-      return <div>Loading...</div>;
+      return (<div className="icon-container"><i className="fa fa-spinner fa-spin fa-4x fa-fw" /></div>);
     }
 
     const heroe = heroes[id];

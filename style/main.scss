@@ -11,6 +11,11 @@ html body {
 
   ul {
     -webkit-padding-start: 0;
+
+    i {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
   }
 
   .margin_b{
@@ -24,15 +29,51 @@ html body {
     -webkit-box-shadow: 7px 9px 49px -3px rgba(100,100,100,1);
     box-shadow: 7px 9px 49px -3px rgba(100,100,100,1);
     padding: 7%;
-    // width: 340px;
-    // position: relative;
-    // max-height: 390px;
-    // top:70px;
-    // margin: auto;
-    // padding: 5%;
-    // overflow-y:hidden;
+
     @media (min-width: 768px)  {
       padding: 4%;
+    }
+  }
+
+  .not-found {
+    text-align: center;
+    span {
+      display: block;
+    }
+  }
+
+  .loader {
+    width: 30px;
+    height: 30px;
+    border: 1px #000 solid;
+    border-radius: 50%;
+    -webkit-animation: rotation 1s ease-in-out infinite;
+    -moz-animation: rotation 1s ease-in-out infinite;
+    animation: rotation 1s ease-in-out infinite;
+    margin: 30px auto;
+
+    &:after{
+        width: 5px;
+        height: 5px;
+        background-color: rgba(0,0,0,1);
+        border-radius: 100%;
+        position: absolute;
+        content: "";
+    }
+
+    @-webkit-keyframes rotation{
+        0%{-webkit-transform: rotate(0deg);}
+        100%{-webkit-transform: rotate(360deg);}
+    }
+
+    @-moz-keyframes rotation{
+        0%{-moz-transform: rotate(0deg);}
+        100%{-moz-transform: rotate(360deg);}
+    }
+
+    @keyframes rotation{
+        0%{transform: rotate(0deg);}
+        100%{transform: rotate(360deg);}
     }
   }
 }

@@ -32,7 +32,6 @@ class HeroesList extends Component {
     }
 
     renderList(heroes) {
-      // TODO: Improve the check that heroes array has content
       if(heroes && heroes.length > 0) {
         return heroes.map((heroe) => {
           return (
@@ -44,10 +43,15 @@ class HeroesList extends Component {
           );
         });
       }else if (heroes && heroes.length == 0) {
-        return <div>No results found with this search criterion</div>
+        return (
+          <div className="not-found">
+            <i className="fa fa-meh-o fa-4x"></i>
+            <span>No results found with this search criterion</span>
+          </div>
+            );
       }
       // If heroes is not existing yet is because it is still loading..
-      return (<div>Loading...</div>);
+      return (<div className="loader" />);
     }
 
     nextScroll() {
