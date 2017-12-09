@@ -3,20 +3,16 @@
   height: 350px;
   overflow: auto;
 
-  ul > li {
-    -webkit-transition: background-color .2s ease;
-    -moz-transition: background-color .2s ease;
-    -o-transition: background-color .2s ease;
-    transition: background-color .2s ease;
+  ul {
+    li {
+      -webkit-transition: background-color .2s ease;
+      -moz-transition: background-color .2s ease;
+      -o-transition: background-color .2s ease;
+      transition: background-color .2s ease;
 
-    &:hover {
-      background-color: $background-hover;
-      cursor: pointer;
-
-      a {
-        &:hover {
-          text-decoration: none;
-        }
+      &:hover {
+        background-color: $background-hover;
+        cursor: pointer;
       }
     }
 
@@ -26,6 +22,6 @@
         text-decoration: none;
       }
     }
-
   }
+
 }

@@ -1,0 +1,19 @@
+.heroe-name {
+  margin-top: 0;
+}
+
+.detail-header {
+  margin-bottom: 20px;
+}
+
+.detail-body {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+
+  @media (max-width: 600px) {
+    margin: 5px 5px 20px;
+    padding: 5px;
+  }
+}

@@ -33,11 +33,11 @@ class HeroesList extends Component {
       if(heroes && heroes.length > 0) {
         return heroes.map((heroe) => {
           return (
-            <li className="list-group-item" key={heroe.id}>
-              <Link to={`/heroes/${heroe.id}`}>
+            <Link to={`/heroes/${heroe.id}`} key={heroe.id}>
+              <li className="list-group-item">
                   {heroe.name}
-              </Link>
-            </li>
+              </li>
+            </Link>
           );
         });
       }else if (heroes && heroes.length == 0) {
