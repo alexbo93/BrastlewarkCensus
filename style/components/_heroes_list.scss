@@ -2,4 +2,30 @@
   border: 2px solid;
   height: 350px;
   overflow: auto;
+
+  ul > li {
+    -webkit-transition: background-color .2s ease;
+    -moz-transition: background-color .2s ease;
+    -o-transition: background-color .2s ease;
+    transition: background-color .2s ease;
+
+    &:hover {
+      background-color: $background-hover;
+      cursor: pointer;
+
+      a {
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    a {
+      color: $font;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+  }
 }

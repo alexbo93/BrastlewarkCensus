@@ -16,8 +16,6 @@ class HeroesList extends Component {
       };
 
       this.getHeroesListBySearch = this.getHeroesListBySearch.bind(this);
-      this.nextScroll = this.nextScroll.bind(this);
-      this.hasMoreData = this.hasMoreData.bind(this);
     }
 
     getHeroesListBySearch() {
@@ -52,18 +50,6 @@ class HeroesList extends Component {
       }
       // If heroes is not existing yet is because it is still loading..
       return (<div className="loader" />);
-    }
-
-    nextScroll() {
-      this.setState({scroll: this.state.scroll+1});
-      // console.log('hello');
-    }
-
-    hasMoreData(heroes) {
-      if(heroes){
-        return heroes.length % this.state.scroll > 20;
-      }
-      return true;
     }
 
     render() {
