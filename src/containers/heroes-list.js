@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { Link } from "react-router-dom";
 import { fetchHeroes } from '../actions/index';
 import Utils from '../utils';
-import InfiniteScroll from 'react-infinite-scroller';
 
 class HeroesList extends Component {
     constructor(props) {

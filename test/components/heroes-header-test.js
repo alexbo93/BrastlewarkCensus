@@ -1,4 +1,4 @@
-import { renderComponent , getElementByTag, resizeWindow, expect } from '../test-helper';
+import { renderComponent , expect } from '../test-helper';
 import HeroesHeader from '../../src/components/heroes-header';
 
 describe('HeroesHeader' , () => {

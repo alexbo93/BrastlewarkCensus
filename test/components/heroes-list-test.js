@@ -62,8 +62,5 @@ describe('HeroesList' , () => {
 
     // Should only display one result: heroe Twizzle Chrometossle
     expect(component.find('.heroes-list > ul').children()).to.have.length(1);
-    let a = component.find('li.list-group-item').simulate('click', {button: 0});
-    console.log('element after click: ',a);
-    console.log(component.find('li.list-group-item').text());
   });
 });

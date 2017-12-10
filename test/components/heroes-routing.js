@@ -3,9 +3,6 @@ import HeroesFakeRouting from '../fake-react-components/heroes-fake-routing';
 import HeroesFakeLanding from '../fake-react-components/heroes-fake-landing';
 import ListState from '../states/list-state';
 
-import HeroesIndex from '../../src/components/heroes-index';
-import HeroesDetail from '../../src/containers/heroes-detail';
-
 describe('HeroesFakeRouting' , () => {
   let component;
 
