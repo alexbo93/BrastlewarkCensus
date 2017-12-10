@@ -61,7 +61,6 @@ class HeroesDetail extends Component {
     }
 
     const heroe = heroes[id];
-    console.log('heroe: ',heroe);
     const first_name = heroe.name.split(" ")[0];
     return (
       <div>
@@ -79,14 +78,14 @@ class HeroesDetail extends Component {
               <p><strong>Age:</strong> {heroe.age} years</p>
               <p><strong>Hair:</strong> {heroe.hair_color}</p>
               <p><strong>Friends</strong></p>
-              <ul>{this.renderFriends(heroe.friends, first_name)}</ul>
+              <ul id="friends">{this.renderFriends(heroe.friends, first_name)}</ul>
               <hr className="visible-xs"/>
             </div>
             <div className="col-xs-12 col-sm-6">
               <p><strong>Height:</strong> {Math.round(heroe.height*10)/10} cm</p>
               <p><strong>Weight:</strong> {Math.round(heroe.weight*10)/10} kg</p>
               <p><strong>Jobs</strong></p>
-              <ul>{this.renderJobs(heroe.professions, first_name)}</ul>
+              <ul id="jobs">{this.renderJobs(heroe.professions, first_name)}</ul>
             </div>
           </div>
           <div className="row">

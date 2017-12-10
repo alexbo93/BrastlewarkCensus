@@ -21,6 +21,7 @@ class HeroesList extends Component {
     getHeroesListBySearch() {
       // If search criterion has been set, heroe list will be built over this
       // if not, the list will be original heroes list
+      // console.log('heroes Brastlewark in test: ',this.props.heroes);
       let current = this.props.search && this.props.search != "" ? (
         Utils.getMatchBySearch(this.props.search, this.props.heroes.Brastlewark)
       ) : (

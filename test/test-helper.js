@@ -14,6 +14,7 @@ global.window = global.document.defaultView;
 global.navigator = global.window.navigator;
 const $ = _$(window);
 
+
 chaiJquery(chai, chai.util, $);
 
 function renderComponent(ComponentClass, props = {}, state = {}) {
@@ -23,7 +24,11 @@ function renderComponent(ComponentClass, props = {}, state = {}) {
     </Provider>
   );
 
-  return $(ReactDOM.findDOMNode(componentInstance));
+  return $(ReactDOM.findDOMNode(componentInstance));;
+}
+
+function getElementByTag(component, tag) {
+  return TestUtils.findRenderedDOMComponentWithTag(component, tag);
 }
 
 $.fn.simulate = function(eventName, value) {
@@ -33,4 +38,4 @@ $.fn.simulate = function(eventName, value) {
   TestUtils.Simulate[eventName](this[0]);
 };
 
-export {renderComponent, expect};
+export {renderComponent, getElementByTag, expect};
