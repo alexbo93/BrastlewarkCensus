@@ -25,6 +25,7 @@ module.exports = {
 
 ## Running Tests
 
+```
 Follow the same procedure to start the project but run
 
 npm test
@@ -32,5 +33,6 @@ npm test
 instead of
 
 npm start
+```
 
 #############
